@@ -9,13 +9,17 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 
-	<dependencies>
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.141.59</version>
-		</dependency>
+
+
+
+
+
+	<dependencies>
 
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -32,13 +36,68 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
 
+
+
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>4.2.2</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>1.0.2</version>
+		</dependency>
 
 
 
 
 
 	</dependencies>
+
+
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.0.0-M5</version>
+
+					<configuration>
+
+						<suiteXmlFiles>
+						
+						<suiteXmlFile>${runner}</suiteXmlFile>  <!-- I can pass the name of the xml file in cmd  -->
+						
+							<!-- <suiteXmlFile>smoke_test.xml</suiteXmlFile>  run multiple xml files
+							<suiteXmlFile>run_diffrent_methods.xml</suiteXmlFile> -->
+
+						</suiteXmlFiles>
+
+
+						<!-- to run specific class/es <includes> <include>Login.java</include> 
+							<include>DemoTest.java</include> </includes> -->
+					</configuration>
+
+
+
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+
+
 
 
 
